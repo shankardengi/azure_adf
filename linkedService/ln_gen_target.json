@@ -1,0 +1,10 @@
+{
+	"name": "ln_gen_target",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stdemopractise.dfs.core.windows.net/"
+		}
+	}
+}
