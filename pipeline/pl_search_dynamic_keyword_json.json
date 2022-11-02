@@ -35,15 +35,6 @@
 				}
 			},
 			{
-				"name": "ForEach_CSV_file",
-				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"isSequential": true
-				}
-			},
-			{
 				"name": "filetype_filter",
 				"type": "Filter",
 				"dependsOn": [
@@ -77,7 +68,13 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(activity('filetype_filter').output.FilteredItemsCount,0)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
