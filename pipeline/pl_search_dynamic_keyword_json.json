@@ -90,7 +90,14 @@
 						{
 							"name": "child_pl",
 							"type": "ExecutePipeline",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Set variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
@@ -98,6 +105,19 @@
 									"type": "PipelineReference"
 								},
 								"waitOnCompletion": true
+							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "files",
+								"value": {
+									"value": "@activity('filetype_filter').output.Value",
+									"type": "Expression"
+								}
 							}
 						}
 					]
@@ -113,8 +133,8 @@
 			}
 		},
 		"variables": {
-			"found": {
-				"type": "Boolean"
+			"files": {
+				"type": "Array"
 			}
 		},
 		"annotations": []
