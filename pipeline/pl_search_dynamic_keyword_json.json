@@ -33,10 +33,58 @@
 						"type": "DelimitedTextReadSettings"
 					}
 				}
+			},
+			{
+				"name": "ForEach_CSV_file",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"isSequential": true
+				}
+			},
+			{
+				"name": "filetype_filter",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "source_metadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('source_metadata').output.childItems",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@contains(item().name,pipeline().parameters.file_type)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "filter_size",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "filetype_filter",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"parameters": {
 			"keyword": {
+				"type": "string"
+			},
+			"file_type": {
 				"type": "string"
 			}
 		},
