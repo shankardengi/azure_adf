@@ -1,6 +1,16 @@
 {
 	"name": "pl_child",
 	"properties": {
+		"parameters": {
+			"keyword": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"test": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
