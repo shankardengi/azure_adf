@@ -1,0 +1,16 @@
+{
+	"name": "pl_search_dynamic_keyword_json",
+	"properties": {
+		"parameters": {
+			"keyword": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"found": {
+				"type": "Boolean"
+			}
+		},
+		"annotations": []
+	}
+}
