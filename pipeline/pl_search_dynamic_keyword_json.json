@@ -104,7 +104,13 @@
 									"referenceName": "pl_child",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"files": {
+										"value": "@variables('files_csv')",
+										"type": "Expression"
+									}
+								}
 							}
 						},
 						{
@@ -113,7 +119,7 @@
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "files",
+								"variableName": "files_csv",
 								"value": {
 									"value": "@activity('filetype_filter').output.Value",
 									"type": "Expression"
@@ -133,7 +139,7 @@
 			}
 		},
 		"variables": {
-			"files": {
+			"files_csv": {
 				"type": "Array"
 			}
 		},
