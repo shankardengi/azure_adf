@@ -1,0 +1,11 @@
+{
+	"name": "child_pipeline",
+	"properties": {
+		"parameters": {
+			"for_each_input": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
