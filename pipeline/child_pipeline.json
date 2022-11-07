@@ -1,9 +1,29 @@
 {
 	"name": "child_pipeline",
 	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var_parent",
+					"value": {
+						"value": "@pipeline().parameters.for_each_input",
+						"type": "Expression"
+					}
+				}
+			}
+		],
 		"parameters": {
 			"for_each_input": {
 				"type": "string"
+			}
+		},
+		"variables": {
+			"var_parent": {
+				"type": "String"
 			}
 		},
 		"annotations": []
